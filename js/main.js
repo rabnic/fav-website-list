@@ -10,24 +10,28 @@ var catList = new CategoryList();
 ////// Object Initialisations /////////////
 var currentCategory = {
 	category : null
-}
+};
 //>>>>>>> End of Object Initialisation <<<<<<<<<<//
 
-
+ 
 ////// Adding event listeners to elements ////////////
 var btnCat = document.getElementById("btnAddCategory");
 btnCat.addEventListener("click",catList.addCategory);
 
+function addHandler_delBtn() {
+	catList.removeCategory(this);
+}
 var delBtn = document.querySelectorAll(".deleteCategory");
 for(var i = 0; i < delBtn.length; i++){
-	delBtn[i].addEventListener("click",function(){
-		catList.removeCategory(this)},false);	
+	delBtn[i].addEventListener("click",addHandler_delBtn,false);	
 }
 
+function addHandler_catElem() {
+	catList.displayWebsites(this);
+}
 var catElem = document.querySelectorAll(".categoryTitle");
 for(var i = 0; i < catElem.length; i++){
-	catElem[i].addEventListener("click",function(){
-		catList.displayWebsites(this)},false);	
+	catElem[i].addEventListener("click",addHandler_catElem,false);	
 }
 
 var btnAddWebsite = document.getElementById("btnAddWebsite");
@@ -93,14 +97,14 @@ function displayDivider() {
 function createCategoryElement(title) {
 	var btn = document.createElement("button");
 	btn.setAttribute("class","pull-right btnDelete glyphicon glyphicon-trash");
-	btn.addEventListener("click",function(){removeCategory(this)},false);
+	btn.addEventListener("click",function(){removeCategory(this);},false);
 	
 	var li = document.createElement("li");
 	var node = document.createTextNode(title);
-	li.setAttribute("class","list-group-item categoryTitle")
+	li.setAttribute("class","list-group-item categoryTitle");
 	li.appendChild(node);
 	li.appendChild(btn);
-	li.addEventListener("click",function(){catList.displayWebsites(this)},false);
+	li.addEventListener("click",function(){catList.displayWebsites(this);},false);
 	var ul = document.getElementById("categoryContainer");
 	li.classList.add("fadeIn");
 	ul.appendChild(li);
@@ -131,7 +135,7 @@ function createWebsiteElement(name, url) {
 
 /*
 * Function to delete all website li elements
-*  
+*   
 */
 function deleteAllWebsites() {
 	document.getElementById("websitesCategory").innerHTML = "Websites";
@@ -153,9 +157,9 @@ function deleteAllWebsites() {
 function displayWebsitesOnCategorySelect(websites) {
 	deleteAllWebsites();
 
-	if(websites.length == 0) return;
+	if(websites.length === 0) return;
 
-	for(let i = 0; i<websites.length; i++){
+	for(var i = 0; i<websites.length; i++){
 		createWebsiteElement(websites[i].name,websites[i].url);
 	}
 }
@@ -163,7 +167,7 @@ function displayWebsitesOnCategorySelect(websites) {
 var outerVariables = {
  counter : 0,
  currElem: ""
-}
+};
 
 function changeBackground(elem) {
 	
@@ -220,11 +224,11 @@ Category.prototype.addWebsite = function () {
 			url.value = ""; url.style.borderColor = "#FFF";
 		}
 	}
-}
+};
 
 Category.prototype.removeWebsite = function () {
 	//
-}
+};
 // >>>>>>>>>>> The end of Category class definition <<<<<<<<//
 
 
