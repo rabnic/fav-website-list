@@ -10,4 +10,4 @@ An interactive app that helps me to keep my favourite/regular websites organised
 6. To visit one of the saved websites, click the desired website from the list and the website will be opened in a new tab/window.
 7. To navigate to other categories, repeat step 1 - 5.
 8. To delete a category and its contents, click the bin icon of the respective category.
-9. To delete only a particular website and retain website siblings and category parent. _N.B: Not yet implemented_  
+9. To delete only a particular website and retain website siblings and category parent. _N.B: Not yet implemented_    

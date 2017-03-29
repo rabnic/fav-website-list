@@ -13,7 +13,7 @@ var currentCategory = {
 };
 //>>>>>>> End of Object Initialisation <<<<<<<<<<//
 
-
+  
 ////// Adding event listeners to elements ////////////
 var btnCat = document.getElementById("btnAddCategory");
 btnCat.addEventListener("click",catList.addCategory);
@@ -135,7 +135,7 @@ function createWebsiteElement(name, url) {
 
 /*
 * Function to delete all website li elements
-*  
+*   
 */
 function deleteAllWebsites() {
 	document.getElementById("websitesCategory").innerHTML = "Websites";
